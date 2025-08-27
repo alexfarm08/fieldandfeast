@@ -136,24 +136,38 @@ h1, h2, h3, h4, h5, h6 {
     --linen: #F8F4EC;
     --dark-charcoal: #2B2B2B;
     --soft-white: #FAF9F6;
-    --size-h1: 3em;
-    --size-h2: 2em;
-    --size-h3: 1.5em;
-    --size-nav: 1.5em;
-    --size-p: 1em;
+    --size-h1: 2.5rem;
+    --size-h2: 2rem;
+    --size-h3: 1.5rem;
+    --size-nav: 1.25rem;
+    --size-p: 1.125rem;
     --shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 /* GLOBAL STYLES (mobile first/small) */
 
+
 body {
     font-family: var(--fonts);
-    max-width: 450px;
     background-color: var(--linen);
+    min-width: 320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+p {
+    font-size: var(--size-p);
+}
+
+main {
+    width: 100%;
+    flex: 1;
 }
 
 header {
-    max-width: 450px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -195,12 +209,16 @@ nav ul > li {
     text-decoration: none;
 }
 
+nav > ul > li > a {
+    text-decoration: none;
+    color: var(--midnight-blue);
+}
+
 #welcome {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    max-width: 450px;
-    margin: 1rem 1rem;
+    margin: 0 1rem 1rem 1rem;
     border-bottom: 2px solid var(--champagne-gold);
     text-align: left;
 }
@@ -218,9 +236,9 @@ nav ul > li {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    max-width: 450px;
-    margin: 1rem 1rem;
+    margin: 0 1rem 1rem 1rem;
     border-bottom: 2px solid var(--champagne-gold);
+    text-align: left;
 }
 
 .card {
@@ -246,9 +264,9 @@ nav ul > li {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    max-width: 450px;
-    margin: 1rem 1rem;
     border-bottom: 2px solid var(--champagne-gold);
+    text-align: left;
+    margin: 0 1rem 1rem 1rem;
 }
 
 .photoCard {
@@ -285,6 +303,7 @@ nav ul > li {
 }
 
 footer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: var(--midnight-blue);
@@ -292,13 +311,13 @@ footer {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 3rem;
 }
 
 address {
     text-decoration: none;
     font-style: normal;
-    padding-bottom: 1rem;
+    padding-bottom: 3rem;
 }
 
 #contactTel {
@@ -321,5 +340,112 @@ footer > div > a {
     font-weight: bold;
 }
 /* MEDIA QUERY (medium) */
+
+@media screen and (min-width: 600px) {
+
+    :root {
+        --size-h1: 3rem;
+        --size-h2: 2.25rem;
+        --size-h3: 1.75rem;
+        --size-p: 1.25rem;
+    }
+
+    .cardSection {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 1rem;
+        row-gap: 0;
+    }
+
+    .cardSection > #card1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        margin-bottom: 0;
+    }
+
+    .cardSection > #card2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        margin-bottom: 0;
+    }
+
+    .cardSection > #card3 {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+    }
+
+    .photoCardSection {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+}
+
 /* MEDIA QUERY (large) */
+
+@media screen and (min-width: 900px) {
+
+    :root {
+        --size-h1: 3.5rem;
+        --size-h2: 2.5rem;
+        --size-h3: 2rem;
+        --size-p: 1.35rem;
+    }
+    .cardSection {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 1rem;
+        row-gap: 0;
+    }
+
+    .cardSection > #card1 {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        margin-bottom: 0;
+    }
+
+    .cardSection > #card2 {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        margin-bottom: 0;
+    }
+
+    .cardSection > #card3 {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        margin: 1rem 0 1rem 0;
+    }
+
+    .photoCardSection {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
 /* MEDIA QUERY (xl) */
+
+@media screen and (min-width: 1200px) {
+    
+    :root {
+        --size-h1: 3.5rem;
+        --size-h2: 2.5rem;
+        --size-h3: 2rem;
+        --size-p: 1.35rem;
+    }
+
+    main {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .photoCardSection {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+    }
+    
+}
